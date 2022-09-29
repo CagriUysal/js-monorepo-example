@@ -7,6 +7,9 @@
     "build": "tsc -b",
     "test": "jest"
   },
+  "dependencies": {
+    "@my-awesome-monorepo/utils": "*"
+  },
   "devDependencies": {
     "@babel/preset-env": "^7.19.1",
     "@babel/preset-typescript": "^7.18.6",
