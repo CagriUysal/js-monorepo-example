@@ -1,3 +1,5 @@
+import { MEANING_OF_LIFE } from "@monorepo/utils";
+
 export function whatsTheMeaningOfLife() {
-  return 42;
+  return MEANING_OF_LIFE;
 }
