@@ -2,5 +2,11 @@
   "name": "monorepo-starter",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf \"./**/node_modules\" \"./**/dist\""
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2"
+  }
 }
