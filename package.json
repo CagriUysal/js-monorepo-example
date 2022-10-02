@@ -4,7 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "clean": "rimraf \"./**/node_modules\" \"./**/dist\""
+    "clean:modules": "rimraf \"./**/node_modules\"",
+    "clean:dist": "rimraf \"./**/dist\"",
+    "clean": "yarn clean:modules && yarn clean:dist"
   },
   "devDependencies": {
     "rimraf": "^3.0.2"
