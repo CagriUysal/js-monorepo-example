@@ -1,28 +1,68 @@
-# Yarn Workspaces
+# Lerna
 
-```diff
-# in package.json
-{
-  "name": "monorepo-starter",
-  "version": "1.0.0",
-+ "private": "true",
-+ "workspaces": [
-+  "packages/*"
-+  ],
-  "main": "index.js",
-  "license": "MIT",
-  "scripts": {
-    "clean:modules": "rimraf \"./**/node_modules\"",
-    "clean:dist": "rimraf \"./**/dist\"",
-    "clean": "yarn clean:modules && yarn clean:dist"
-  },
-  "devDependencies": {
-    "rimraf": "^3.0.2"
-  }
-}
+```bash
+yarn add lerna -DW
 ```
 
 ```bash
-# install all packages in optimized way and link local packages
-yarn install
+yarn lerna init
+```
+
+```diff
+# lerna.json
++{
++  "$schema": "node_modules/lerna/schemas/lerna-schema.json",
++  "useNx": true,
++  "useWorkspaces": true,
++  "version": "0.0.0"
++}
+```
+
+```bash
+npx lerna run build
+```
+
+```bash
+npx lerna run test [--no-sort]
+```
+
+```bash
+npx nx init
+```
+
+```diff
++{
++  "tasksRunnerOptions": {
++    "default": {
++      "runner": "nx/tasks-runners/default",
++      "options": {
++        "cacheableOperations": ["build", "test"]
++      }
++    }
++  }
++}
+```
+
+```bash
+lerna run test
+```
+
+```diff
+{
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "nx/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "test"]
+      }
+    }
+  },
++  "targetDefaults": {
++    "build": {
++      "dependsOn": {
++        "^build"
++      }
++    },
++  }
+}
 ```
